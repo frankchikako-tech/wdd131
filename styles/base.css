@@ -100,8 +100,14 @@ main h1 {
 }
 
 .profile-image img {
+  grid-column: 2;
   width: 130px;
   border: 1px solid #ccc;
+}
+
+/* text stays on the left */
+.profile-image p {
+  grid-column: 1;
 }
 
 /* Location heading */
