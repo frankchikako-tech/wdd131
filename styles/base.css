@@ -92,22 +92,21 @@ main h1 {
 
 /* Profile section layout */
 .profile-image {
-  display: grid;
-  grid-template-columns: 1fr 150px;
+  display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   padding: 10px;
-  gap: 10px;
+  gap: 15px;
 }
 
 .profile-image img {
-  grid-column: 2;
-  width: 130px;
+  width: 150px;
   border: 1px solid #ccc;
 }
 
 /* text stays on the left */
 .profile-image p {
-  grid-column: 1;
+  flex: 1;
 }
 
 /* Location heading */
