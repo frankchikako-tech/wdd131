@@ -30,3 +30,22 @@ body {
     justify-content: space-between;
   }
 }
+.weather h2::after {
+  content: " ⛅";
+}
+.weather-icon {
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .weather-icon {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
