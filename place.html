@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Country Page</title>
+  <meta name="description" content="Explore Nigeria, its culture, weather, and beautiful attractions.">
+  <meta name="author" content="Frank Chika Ukeje">
+  <title>Nigeria Page</title>
   <link rel="stylesheet" href="styles/place.css">
   <script defer src="scripts/place.js"></script>
 </head>
 <body>
   <header>
-    <h1>Country Name</h1>
+    <h1>Nigeria</h1>
     <nav> <!-- optional navigation --> </nav>
   </header>
 
@@ -18,8 +20,22 @@
     <section class="hero">
       <picture>
         <source media="(min-width: 768px)" srcset="images/hero-large.webp">
-        <img src="images/hero-small.webp" alt="Beautiful view of the country">
+        <img src="images/Lagos.jpg" alt="Beautiful view of the country">
       </picture>
+    </section>
+    <!-- Data Section -->
+    <section class="data-section">
+        <h2>Data</h2>
+        <ul class="data-list">
+            <li><span class="data-label">Area</span> <span>923,768 sq km</span></li>
+            <li><span class="data-label">Population</span> <span>223,804,632</span></li>
+            <li><span class="data-label">Capital</span> <span>Abuja</span></li>
+            <li><span class="data-label">Language</span> <span>English</span></li>
+            <li><span class="data-label">Currency</span> <span>Naira (₦)</span></li>
+            <li><span class="data-label">Time Zone</span> <span>UTC +1</span></li>
+            <li><span class="data-label">Calling Code</span> <span>+234</span></li>
+            <li><span class="data-label">Internet TLD</span> <span>.ng</span></li>
+        </ul>
     </section>
 
     <!-- Weather Section -->
@@ -33,8 +49,9 @@
     <!-- Add more sections as per wireframe -->
   </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> | Last modified: <span id="lastModified"></span></p>
+   <footer>
+        <p>&copy; <span id="year"></span> ✅ Ukeje Frank Chika ✅ Nigeria</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
   </footer>
 </body>
 </html>

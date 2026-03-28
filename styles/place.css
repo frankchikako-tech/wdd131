@@ -19,3 +19,14 @@ body {
 .weather .icon::after {
   content: ' ⛅'; /* pseudo-element for large view */
 }
+@media (min-width: 768px) {
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .weather {
+    display: flex;
+    justify-content: space-between;
+  }
+}
