@@ -1,51 +1,137 @@
+/* =========================
+   CSS VARIABLES
+========================= */
 :root {
-  --primary-color: #ff4500; /* adapt to country flag colors */
-  --secondary-color: #f0f0f0;
-  --font-main: 'Arial', sans-serif;
+  --primary-color: #008753;   /* Nigeria green */
+  --secondary-color: #ffffff;
+  --accent-color: #f4f4f4;
+  --text-color: #222;
+  --border-color: #ddd;
 }
 
+/* =========================
+   GLOBAL STYLES
+========================= */
 body {
-  font-family: var(--font-main);
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
 }
 
+h1, h2 {
+  margin: 0 0 10px 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
 .hero img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
-.weather .icon::after {
-  content: ' ⛅'; /* pseudo-element for large view */
+/* =========================
+   MAIN CONTENT
+========================= */
+main {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
-@media (min-width: 768px) {
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-  }
 
-  .weather {
-    display: flex;
-    justify-content: space-between;
-  }
+/* =========================
+   DATA SECTION
+========================= */
+.data-section {
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  margin-bottom: 15px;
 }
+
+.data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-label {
+  font-weight: bold;
+}
+
+/* =========================
+   WEATHER SECTION
+========================= */
+.weather {
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* REQUIRED: PSEUDO-ELEMENT */
 .weather h2::after {
   content: " ⛅";
 }
+
+/* SVG ICON (MOBILE) */
 .weather-icon {
   width: 40px;
+  margin-top: 10px;
 }
 
-@media (min-width: 768px) {
-  .weather-icon {
-    display: none;
-  }
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  margin-top: 20px;
 }
+
+/* =========================
+   MEDIA QUERY (REQUIRED)
+========================= */
 @media (min-width: 768px) {
+
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+  }
+
+  /* Hide SVG icon on larger screens */
+  .weather-icon {
+    display: none;
+  }
+
+  /* Improve spacing */
+  .data-section,
+  .weather {
+    margin: 0;
   }
 }
