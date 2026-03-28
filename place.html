@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Country Page</title>
+  <link rel="stylesheet" href="styles/place.css">
+  <script defer src="scripts/place.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Country Name</h1>
+    <nav> <!-- optional navigation --> </nav>
+  </header>
+
+  <main>
+    <!-- Hero Image with responsive srcset -->
+    <section class="hero">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/hero-large.webp">
+        <img src="images/hero-small.webp" alt="Beautiful view of the country">
+      </picture>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather">
+      <h2>Weather <span class="icon">⛅</span></h2>
+      <p>Temperature: <span id="temp">5</span>°C</p>
+      <p>Wind Speed: <span id="wind">10</span> km/h</p>
+      <p>Wind Chill: <span id="windChill">N/A</span></p>
+    </section>
+
+    <!-- Add more sections as per wireframe -->
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> | Last modified: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>
