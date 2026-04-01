@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive temple album showcasing beautiful temple images with modern web design.">
+  <meta name="author" content="Ukeje Frank Chika">
+  <title>Temple Album</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/filtered-temple.css">
+  <link rel="stylesheet" href="styles/filtered-temple-large.css">
+
+  <!-- JavaScript -->
+  <script src="scripts/filtered-temple.js" defer></script>
+</head>
+
+<body>
+
+<header>
+  <div class="top-bar">
+    <h2>Temple Album</h2>
+    <button id="menuBtn">☰</button>
+  </div>
+
+  <nav id="navMenu">
+    <a href="#">Home</a>
+    <a href="#">Old</a>
+    <a href="#">New</a>
+    <a href="#">Large</a>
+    <a href="#">Small</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Temple Gallery</h1>
+
+  <div id="filterInfo" class="filter-info" aria-live="polite"></div>
+
+  <div class="gallery"></div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> ✅ Ukeje Frank Chika ✅ Abuja, Nigeria</p>
+  <p>Last Modified: <span id="lastModified"></span></p>
+</footer>
+
+</body>
+</html>
