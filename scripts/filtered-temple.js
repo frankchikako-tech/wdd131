@@ -90,6 +90,13 @@ const filterInfo = document.getElementById("filterInfo");
 const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
 
+// Extract year
+function getTempleYear(temple) {
+  const match = temple.dedicated.match(/\d{4}/);
+  return match ? Number(match[0]) : 0;
+}
+
+// Render cards
 function renderGallery(items) {
   gallery.innerHTML = "";
 
@@ -101,6 +108,7 @@ function renderGallery(items) {
 
   items.forEach((temple) => {
     const figure = document.createElement("figure");
+
     const img = document.createElement("img");
     img.src = temple.imageUrl;
     img.alt = `${temple.templeName} Temple`;
@@ -108,10 +116,10 @@ function renderGallery(items) {
 
     const caption = document.createElement("figcaption");
     caption.innerHTML = `
-      <strong>${temple.templeName}</strong><br>
-      ${temple.location}<br>
-      Dedicated: ${temple.dedicated}<br>
-      Area: ${temple.area.toLocaleString()} sq ft
+      <h3>${temple.templeName}</h3>
+      <p>${temple.location}</p>
+      <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
+      <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
     `;
 
     figure.appendChild(img);
@@ -119,57 +127,58 @@ function renderGallery(items) {
     gallery.appendChild(figure);
   });
 
-  filterInfo.textContent = `Showing ${items.length} temples.`;
+  filterInfo.textContent = `Showing ${items.length} temple(s).`;
 }
 
-function getTempleYear(temple) {
-  const match = temple.dedicated.match(/\d{4}/);
-  return match ? Number(match[0]) : 0;
-}
-
+// Apply filters (CORRECT LOGIC)
 function applyFilter(action) {
-  let result = [...temples];
+  let result = [];
+
   switch (action) {
     case "old":
-      result.sort((a, b) => getTempleYear(a) - getTempleYear(b));
-      filterInfo.textContent = "Sorted by oldest dedication date.";
+      result = temples.filter(t => getTempleYear(t) < 1900);
+      filterInfo.textContent = "Temples built before 1900.";
       break;
+
     case "new":
-      result.sort((a, b) => getTempleYear(b) - getTempleYear(a));
-      filterInfo.textContent = "Sorted by newest dedication date.";
+      result = temples.filter(t => getTempleYear(t) > 2000);
+      filterInfo.textContent = "Temples built after 2000.";
       break;
+
     case "large":
-      result.sort((a, b) => b.area - a.area);
-      filterInfo.textContent = "Sorted by largest area.";
+      result = temples.filter(t => t.area > 90000);
+      filterInfo.textContent = "Large temples (> 90,000 sq ft).";
       break;
+
     case "small":
-      result.sort((a, b) => a.area - b.area);
-      filterInfo.textContent = "Sorted by smallest area.";
+      result = temples.filter(t => t.area < 10000);
+      filterInfo.textContent = "Small temples (< 10,000 sq ft).";
       break;
+
     default:
+      result = temples;
       filterInfo.textContent = "Showing all temples.";
   }
+
   renderGallery(result);
 }
 
+// Menu toggle
 menuBtn.addEventListener("click", () => {
   navMenu.classList.toggle("show");
-
-  if (menuBtn.textContent === "☰") {
-    menuBtn.textContent = "✖";
-  } else {
-    menuBtn.textContent = "☰";
-  }
+  menuBtn.textContent = menuBtn.textContent === "☰" ? "✖" : "☰";
 });
 
+// Filter click handler (works for <a> and <button>)
 navMenu.addEventListener("click", (event) => {
-  if (event.target.tagName !== "A") return;
+  if (!event.target.matches("a, button")) return;
+
   event.preventDefault();
 
   const action = event.target.textContent.trim().toLowerCase();
   applyFilter(action);
 
-  navMenu.querySelectorAll("a").forEach((link) => link.classList.remove("active"));
+  navMenu.querySelectorAll("a, button").forEach(el => el.classList.remove("active"));
   event.target.classList.add("active");
 
   if (window.innerWidth < 768) {
@@ -178,13 +187,9 @@ navMenu.addEventListener("click", (event) => {
   }
 });
 
-// Footer Year
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// Last Modified
-const lastModifiedEl = document.getElementById("lastModified");
-if (lastModifiedEl) lastModifiedEl.textContent = document.lastModified;
+// Footer
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("lastModified").textContent = document.lastModified;
 
 // Initialize
 applyFilter("home");

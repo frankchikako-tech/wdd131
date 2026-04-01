@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Responsive temple album showcasing beautiful temple images with modern web design.">
+
+  <!-- SEO -->
+  <meta name="description" content="Explore a responsive temple album with filtering options for old, new, large, and small temples.">
   <meta name="author" content="Ukeje Frank Chika">
+
   <title>Temple Album</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="styles/filtered-temple.css">
   <link rel="stylesheet" href="styles/filtered-temple-large.css">
@@ -24,29 +27,32 @@
 
 <header>
   <div class="top-bar">
-    <h2>Temple Album</h2>
-    <button id="menuBtn">☰</button>
+    <h1>Temple Album</h1>
+    <button id="menuBtn" aria-label="Toggle navigation menu">☰</button>
   </div>
 
+  <!-- Use buttons instead of empty links -->
   <nav id="navMenu">
-    <a href="#">Home</a>
-    <a href="#">Old</a>
-    <a href="#">New</a>
-    <a href="#">Large</a>
-    <a href="#">Small</a>
+    <button id="homeBtn">Home</button>
+    <button id="oldBtn">Old</button>
+    <button id="newBtn">New</button>
+    <button id="largeBtn">Large</button>
+    <button id="smallBtn">Small</button>
   </nav>
 </header>
 
 <main>
-  <h1>Temple Gallery</h1>
+  <h2>Temple Gallery</h2>
 
+  <!-- Accessibility improvement -->
   <div id="filterInfo" class="filter-info" aria-live="polite"></div>
 
-  <div class="gallery"></div>
+  <!-- Add aria-label -->
+  <div class="gallery" aria-label="Temple image gallery"></div>
 </main>
 
 <footer>
-  <p>&copy; <span id="year"></span> ✅ Ukeje Frank Chika ✅ Abuja, Nigeria</p>
+  <p>&copy; <span id="year"></span> | Ukeje Frank Chika | Abuja, Nigeria</p>
   <p>Last Modified: <span id="lastModified"></span></p>
 </footer>
 
